@@ -1,0 +1,10 @@
+%div.col-md-10.col-md-offset-1
+  %div.message-show
+    %h2= @message.title
+    %p.message-posted-by
+      Created
+      = time_ago_in_words(@message.created_at)
+    %p.message-desc= @message.description
+
+    %div.links.btn-group
+      = link_to "Back", root_path, class: 'btn btn-default'
