@@ -12,4 +12,5 @@
       %p.notice= notice
     - if alert.present?
       %p.alert= alert
-    = yield
+    .container
+      = yield
