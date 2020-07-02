@@ -1,1 +1,14 @@
 @import "bootstrap/scss/bootstrap";
+
+.notice, 
+.alert {
+  padding: 5px 15px;
+  border-radius: initial;
+}
+.notice {
+  background-color: #ddd;
+}
+
+.alert {
+  background-color: lightpink;
+}

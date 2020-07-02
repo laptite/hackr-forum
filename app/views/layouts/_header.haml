@@ -8,6 +8,8 @@
         = link_to "All Messages", messages_path
       %li.nav-item
         = link_to "Create Message", new_message_path
+      %li.nav-item
+        = link_to "Logout", destroy_user_session_path, method: :delete
       %li.nav-item.dropdown
         %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
           Dropdown
