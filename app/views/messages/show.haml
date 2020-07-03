@@ -2,11 +2,16 @@
   %div.message-show
     %h2= @message.title
     %p.message-posted-by
-      Created
-      = time_ago_in_words(@message.created_at)
+      = "Created #{time_ago_in_words(@message.created_at)} ago"
     %p.message-desc= @message.description
 
     %div.links.btn-group
       = link_to "Back", root_path, class: 'btn btn-default'
       = link_to "Edit", edit_message_path(@message), class: 'btn btn-primary'
       = link_to "Delete", message_path(@message), method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-danger'
+
+    %h3.comments-section-header Comments
+    %p= render @message.comments
+
+    %h3.reply-to-msg Join Discussion
+    = render 'comments/form'
