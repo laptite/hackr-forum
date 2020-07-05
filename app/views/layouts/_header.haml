@@ -1,18 +1,4 @@
--#
-  %nav.navbar.navbar-default
-    .navbar-header
-      .container
-        = link_to "Sports Fan Forum", root_path, class: "navbar-brand"
-
-      %ul.navbar-nav.nav.navbar-right
-        - if user_signed_in?
-          %li= link_to "Log Out", destroy_user_session_path, method: :delete, class: 'nav-link'
-          %li= link_to "Post Message", new_message_path, class: 'navbar-test navbar-link'
-        - else
-          %li= link_to "Log In", new_user_session_path, class: 'nav-link'
-          %li= link_to "Sign Up", new_user_registration_path, class: 'nav-link'
-
-%nav.navbar.navbar-expand-lg.navbar-light.bg-light
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
   = link_to "Sports Fan Forum", root_path, class: "navbar-brand"
   %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", type: "button"}
     %span.navbar-toggler-icon
@@ -20,15 +6,13 @@
     %ul.navbar-nav.mr-auto
       - if user_signed_in?
         %li= link_to "Add Post", new_message_path, class: 'nav-link'
-        %li.nav-item.dropdown
-          %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", href: "#", role: "button"}
-            Manage Account
-          .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
-            = link_to "My Profile", "#", class: 'dropdown-item'
-            = link_to "Logout", destroy_user_session_path, method: :delete, class: 'dropdown-item'
+        %li= link_to "My Account", "#", class: 'nav-link'
+        %li= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link'
       - else
         %li= link_to "My Account", new_user_session_path, class: 'nav-link'
         %li= link_to "Sign Up", new_user_registration_path, class: 'nav-link'
-    %form.form-inline.my-2.my-lg-0
-      %input.form-control.mr-sm-2{ "aria-label" => "Search", placeholder: "Search", type: "search" }/
-      %button.btn.btn-outline-success.my-2.my-sm-0{ type: "submit" } Search
+    
+    -#
+      %form.form-inline.my-2.my-lg-0
+        %input.form-control.mr-sm-2{ "aria-label" => "Search", placeholder: "Search", type: "search" }/
+        %button.btn.btn-outline-success.my-2.my-sm-0{ type: "submit" } Search

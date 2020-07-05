@@ -1,6 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Lato);
 @import "bootstrap/scss/bootstrap";
 
+body > .container:first-of-type {
+  padding-top: 25px;
+}
+
 .notice, 
 .alert {
   padding: 5px 15px;
@@ -17,11 +21,11 @@
 /* General Styles */
 
 body {
-  background: -webkit-linear-gradient(40deg, #d1edf0 10%, #ecc8c6 100%);
-  background:    -moz-linear-gradient(40deg, #d1edf0 10%, #ecc8c6 100%);
-  background:     -ms-linear-gradient(40deg, #d1edf0 10%, #ecc8c6 100%);
-  background:      -o-linear-gradient(40deg, #d1edf0 10%, #ecc8c6 100%);
-  background:         linear-gradient(40deg, #d1edf0 10%, #ecc8c6 100%);
+  background: -webkit-linear-gradient(40deg, #000 10%, #673ab7 100%);
+  background:    -moz-linear-gradient(40deg, #000 10%, #673ab7 100%);
+  background:     -ms-linear-gradient(40deg, #000 10%, #673ab7 100%);
+  background:      -o-linear-gradient(40deg, #000 10%, #673ab7 100%);
+  background:         linear-gradient(40deg, #000 10%, #673ab7 100%);
   font-family: 'Lato', sans-serif;
 }
 
@@ -30,11 +34,53 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 300; 
 }
 
+.btn {
+  font-size: 0.8em;
+  line-height: 1.25em;
+}
+
+.btn-group {
+  position: absolute;
+  top: -1em;
+  right: 2em;
+}
+
+.btn-default {
+  background-color: #fff;
+  border-color: #c7a8ff;
+  color: #505050;
+  
+  &:hover {
+    color: #7b7b7b;
+    border-color: #9a9a9a;
+  }
+}
+
+.btn.btn-primary {
+  background-color: #865ed0;
+  border-color: #865ed0;
+  color: #fff;
+  &:hover {
+    background-color: #b89eff;
+    border-color: #b89eff;
+  }
+}
+
+.btn.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: #fff;
+  &:hover {
+    background-color: #ff7c89;
+    border-color: #ff7c89;
+  }
+}
+
 .btn-custom {
   background-color: #fff;
   color: #ec6767;
   font-family: 'Asap', sans-serif; 
-  font-weight: 300;
+  font-weight: 400;
   border-radius: 6px;
   padding: 10px 20px;
   &:hover {
@@ -45,10 +91,9 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.btn:hover {
+.btn-group > .btn:hover {
   transition: 0.5s;
-  color: #383838;
-  background-color: #fff;
+  z-index: 0;
 }
 
 
@@ -78,26 +123,13 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: 1.1px;
     font-size: 1.9em;
   }
-
 }
-
-
-/* Links styles */
-
-.links {
-  margin-top: 20px;
-  .btn-default {
-    color: #ec6767;
-  }
-}
-
 
 /* Message styles */
 
 .message {
   box-sizing: border-box;
   background-color: #9696a9;
-  border-radius: 5px;
   margin-bottom: 25px;
   margin-right: 10px;
   margin-left: 10px;
@@ -116,7 +148,11 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .btn-custom {
+    display: inline-block;
+    float: right;
     margin-top: 12px;
+    font-size: 0.8em;
+    padding: 5px 15px;
   }
 
 }
@@ -129,11 +165,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .message-show {
   box-sizing: border-box;
-  background-color: #9f9f9f;
-  border-radius: 5px;
+  background-color: #e9e1ff;
   padding: 2.0em 1.5em;
   border-bottom: 4px solid #ec6767;
-  color: #fff;
+  color: #505050;
   font-family: 'Asap', sans-serif;
   font-weight: 300;
 
@@ -148,7 +183,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .message-posted-by {
-    color: #eee;
+    color: #7b7b7b;
     font-size: 0.9em;
   }
 
@@ -162,24 +197,42 @@ h1, h2, h3, h4, h5, h6 {
 /* Comment styles */
 
 .comment {
+  position: relative;
   border-bottom: 1px solid #ec6767;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding: 15px;
+  background-color: #fff;
 
   .comment-content {
     font-size: 1.25em;
   } 
 
   .comment-posted-by {
-    color: #eee;
+    color: #7b7b7b;
     font-size: 0.8em;
+    margin: 0;
   }
 
   .links {
-    margin-top: 15px;
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    z-index: 1;
+
+    .btn {
+      line-height: 1em;
+
+      &:not(:last-child) {
+        margin-right: 3px;
+      }
+    }
+
     a {
-      color: #FFF;
       margin-right: 15px;
+    }
+
+    @media screen and (max-width: 576px) {
+      bottom: -1em;
+      font-size: 0.5em;
     }
   }
 }
